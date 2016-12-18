@@ -1,0 +1,31 @@
+---
+title: "Twitter"
+author: "Zee"
+date: "11 October, 2016"
+output: html_document
+---
+
+```{r}
+#Set working directory
+setwd("~/Documents/EDM2016/twitter-data")
+
+#Save data as twitter_data
+twitter_data <- read.csv("HUDK4050-twitter-10-06-16.csv", header = TRUE, sep = ",")
+head(twitter_data)
+
+#Plot favorite counts with respect to time index
+plot(twitter_data$favoriteCount)
+
+#Histogram (frequency of tweets with respect to time index)
+hist(twitter_data$time, breaks = 100)
+
+#Scatter plot of number of favorite versus time
+plot(twitter_data$favoriteCount, twitter_data$time)
+
+#Boxplot tweeting time by screenName
+boxplot(twitter_data$time ~ twitter_data$screenName, las = 2)
+
+#Boxplot favoriteCount by ScreeName
+boxplot(twitter_data$favoriteCount ~ twitter_data$screenName, las = 2)
+```
+
